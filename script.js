@@ -49,7 +49,32 @@ const initializer = () => {
 };
 
 //main logic 
+const modifyText=(command,defaultUi,value)=>{
+ document.execCommand(command,defaultUi,value);
+}
+//For basic operations 
+optionButtons.forEach(button=>{
+    button.addEventListener("click",()=>{
+        modifyText(button.id,false,null);
+    })
+})
+//options require value
+advancedOptionButton.forEach((button)=>{
+    button.addEventListener("change",()=>{
+        modifyText(button.id,false,button.value)
+    })
+})
 
+//link
+linkButton.addEventListener("click",()=>{
+    let userLink=prompt("Enter a URL");
+    if(/http/i.test(userLink)){
+        modifyText(linkButton.id,false,userLink);
+    }else{
+        userLink="http://"+ userLink;
+        modifyText(linkButton.id,false,userLink);
+    }
+})
 //highlight clicked button
 const highlighter = (className, needsRemoval) => {
   className.forEach((button) => {
