@@ -40,13 +40,20 @@ const highlighter = (className, needsRemoval) => {
           alreadyActive = true;
         }
         highlighterRemover(className);
-        if(!alreadyActive){
-            button.classList.add("active");
+        if (!alreadyActive) {
+          button.classList.add("active");
         }
-      }
-      else{
+      } else {
         button.classList.toggle("active");
       }
     });
   });
 };
+
+const highlighterRemover = (className) => {
+  className.forEach((button) => {
+     button.classList.remove("active");
+  });
+};
+
+window.onload = initializer();
