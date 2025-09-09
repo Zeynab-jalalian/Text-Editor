@@ -48,6 +48,8 @@ const initializer = () => {
   fontSizeref.value=3;
 };
 
+//main logic 
+
 //highlight clicked button
 const highlighter = (className, needsRemoval) => {
   className.forEach((button) => {
