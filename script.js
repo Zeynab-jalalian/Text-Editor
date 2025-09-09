@@ -28,6 +28,24 @@ const initializer = () => {
   highlighter(spacingButtons, true);
   highlighter(formatButtons, false);
   highlighter(scriptButton, true);
+
+  //create options for font name
+  fontList.map(value=>{
+    let option=document.createElement("option");
+    option.value=value;
+    option.innerHTML=value;
+    fontName.appendChild(option);
+  });
+
+  //fontSize 
+  for (let i=1;i<=7;i++){
+    let option=document.createElement("option");
+    option.value=i;
+    option.innerHTML=i;
+    fontSizeref.appendChild(option);
+  }
+  //default size
+  fontSizeref.value=3;
 };
 
 //highlight clicked button
